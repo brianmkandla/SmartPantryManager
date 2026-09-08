@@ -148,6 +148,40 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
         return rowsDeleted;
     }
+	
+	    // Retrieves one pantry item using its database ID.
+    public PantryItem getPantryItemById(int id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                TABLE_PANTRY_ITEMS,
+                null,
+                COLUMN_ID + " = ?",
+                new String[]{String.valueOf(id)},
+                null,
+                null,
+                null
+        );
+
+        PantryItem item = null;
+
+        // Check whether a matching item was found.
+        if (cursor.moveToFirst())
+        {
+            String name = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAME));
+            double quantity = cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN_QUANTITY));
+            String unit = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_UNIT));
+            String expiryDate = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EXPIRY_DATE));
+
+            item = new PantryItem(id, name, quantity, unit, expiryDate);
+        }
+
+        cursor.close();
+        db.close();
+
+        return item;
+    }
 }	
 
 

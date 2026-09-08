@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity
         super.onResume();
 
         // Reload the pantry whenever this screen becomes visible.
-        // This allows newly added items to appear immediately.
+        // This also refreshes the list after an add, edit or delete.
         loadPantryItems();
     }
 
@@ -60,7 +61,58 @@ public class MainActivity extends AppCompatActivity
     {
         List<PantryItem> pantryItems = databaseHelper.getAllPantryItems();
 
-        pantryAdapter = new PantryAdapter(pantryItems);
+        pantryAdapter = new PantryAdapter(
+                pantryItems,
+                new PantryAdapter.OnItemActionListener()
+                {
+                    @Override
+                    public void onEdit(PantryItem item)
+                    {
+                        openEditScreen(item);
+                    }
+
+                    @Override
+                    public void onDelete(PantryItem item)
+                    {
+                        showDeleteConfirmation(item);
+                    }
+                }
+        );
+
         recyclerPantry.setAdapter(pantryAdapter);
+    }
+
+    // Opens the edit screen for the selected pantry item.
+    private void openEditScreen(PantryItem item)
+    {
+        Intent intent = new Intent(MainActivity.this, EditPantryItemActivity.class);
+        intent.putExtra("item_id", item.getId());
+        startActivity(intent);
+    }
+
+    // Shows a confirmation dialog before deleting a pantry item.
+    private void showDeleteConfirmation(PantryItem item)
+    {
+        new AlertDialog.Builder(this)
+                .setTitle("Delete Pantry Item")
+                .setMessage("Are you sure you want to delete " + item.getName() + "?")
+                .setPositiveButton("Delete", (dialog, which) ->
+                {
+                    deletePantryItem(item);
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
+    // Deletes the selected pantry item from SQLite.
+    private void deletePantryItem(PantryItem item)
+    {
+        int result = databaseHelper.deletePantryItem(item.getId());
+
+        if (result > 0)
+        {
+            // Reload the list so the deleted item disappears.
+            loadPantryItems();
+        }
     }
 }

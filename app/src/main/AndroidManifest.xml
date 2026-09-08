@@ -22,6 +22,11 @@
             android:name=".AddPantryItemActivity"
             android:exported="false" />
 
+        <!-- Screen used to edit an existing pantry item. -->
+        <activity
+            android:name=".EditPantryItemActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
