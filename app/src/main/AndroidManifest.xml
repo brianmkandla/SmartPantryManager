@@ -7,6 +7,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartPantry">
 
+        <!-- Main screen of the application. -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -15,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Screen used to add a new pantry item. -->
+        <activity
+            android:name=".AddPantryItemActivity"
+            android:exported="false" />
 
     </application>
 
