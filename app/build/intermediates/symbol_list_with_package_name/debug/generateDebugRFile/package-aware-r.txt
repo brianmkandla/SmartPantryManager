@@ -1,4 +1,0 @@
-com.brian.smartpantry
-layout activity_main
-string app_name
-style Theme_SmartPantry
