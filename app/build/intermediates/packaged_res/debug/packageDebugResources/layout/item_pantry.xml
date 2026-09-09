@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Displays the name of the pantry item. -->
+    <TextView
+        android:id="@+id/textItemName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Displays the quantity and unit of the pantry item. -->
+    <TextView
+        android:id="@+id/textItemQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="16sp" />
+
+    <!-- Displays the expiry date when one has been provided. -->
+    <TextView
+        android:id="@+id/textItemExpiry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="14sp" />
+
+    <!-- Holds the edit and delete buttons for this pantry item. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <!-- Opens the edit screen for this pantry item. -->
+        <Button
+            android:id="@+id/buttonEditItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Edit" />
+
+        <!-- Deletes this pantry item after confirmation. -->
+        <Button
+            android:id="@+id/buttonDeleteItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Delete" />
+
+    </LinearLayout>
+
+</LinearLayout>

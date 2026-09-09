@@ -1,0 +1,20 @@
+com.brian.smartpantry
+id buttonAddItem
+id buttonDeleteItem
+id buttonEditItem
+id buttonSaveItem
+id buttonUpdateItem
+id editItemExpiry
+id editItemName
+id editItemQuantity
+id editItemUnit
+id recyclerPantry
+id textItemExpiry
+id textItemName
+id textItemQuantity
+layout activity_add_pantry_item
+layout activity_edit_pantry_item
+layout activity_main
+layout item_pantry
+string app_name
+style Theme_SmartPantry

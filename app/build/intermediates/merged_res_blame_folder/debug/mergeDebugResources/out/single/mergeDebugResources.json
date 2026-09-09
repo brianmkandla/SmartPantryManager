@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\brian\\.gradle\\daemon\\9.5.0\\com.brian.smartpantry.app-debug-31:\\layout_item_pantry.xml.flat",
+        "source": "C:\\Users\\brian\\.gradle\\daemon\\9.5.0\\com.brian.smartpantry.app-main-33:\\layout\\item_pantry.xml"
+    },
+    {
+        "merged": "com.brian.smartpantry.app-debug-31:/layout_item_pantry.xml.flat",
+        "source": "com.brian.smartpantry.app-main-33:/layout/item_pantry.xml"
+    },
+    {
+        "merged": "C:\\Users\\brian\\.gradle\\daemon\\9.5.0\\com.brian.smartpantry.app-debug-31:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\brian\\.gradle\\daemon\\9.5.0\\com.brian.smartpantry.app-main-33:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\brian\\.gradle\\daemon\\9.5.0\\com.brian.smartpantry.app-debug-31:\\layout_activity_add_pantry_item.xml.flat",
+        "source": "C:\\Users\\brian\\.gradle\\daemon\\9.5.0\\com.brian.smartpantry.app-main-33:\\layout\\activity_add_pantry_item.xml"
+    },
+    {
+        "merged": "com.brian.smartpantry.app-debug-31:/layout_activity_edit_pantry_item.xml.flat",
+        "source": "com.brian.smartpantry.app-main-33:/layout/activity_edit_pantry_item.xml"
+    }
+]

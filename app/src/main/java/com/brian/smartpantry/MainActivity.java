@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.brian.smartpantry.database.DatabaseHelper;
 import com.brian.smartpantry.model.PantryItem;
+import com.brian.smartpantry.database.RecipeSeeder;
 
 import java.util.List;
 
@@ -31,6 +32,12 @@ public class MainActivity extends AppCompatActivity
 
         // Create the database helper used to access pantry data.
         databaseHelper = new DatabaseHelper(this);
+		
+		// Add the starter recipes the first time the database is used.
+		if (!databaseHelper.hasRecipes())
+		{
+			RecipeSeeder.seedRecipes(databaseHelper);
+		}
 
         // Set the RecyclerView to display items in a vertical list.
         recyclerPantry.setLayoutManager(new LinearLayoutManager(this));

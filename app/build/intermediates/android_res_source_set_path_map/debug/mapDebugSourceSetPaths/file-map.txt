@@ -1,0 +1,8 @@
+com.brian.smartpantry.app-pngs-0 C:\Users\brian\AndroidStudioProjects\SmartPantryManager\app\build\generated\res\pngs\debug
+com.brian.smartpantry.app-updated_navigation_xml-1 C:\Users\brian\AndroidStudioProjects\SmartPantryManager\app\build\generated\updated_navigation_xml\debug
+com.brian.smartpantry.app-packageDebugResources-2 C:\Users\brian\AndroidStudioProjects\SmartPantryManager\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.brian.smartpantry.app-packageDebugResources-3 C:\Users\brian\AndroidStudioProjects\SmartPantryManager\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.brian.smartpantry.app-debug-4 C:\Users\brian\AndroidStudioProjects\SmartPantryManager\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.brian.smartpantry.app-debug-5 C:\Users\brian\AndroidStudioProjects\SmartPantryManager\app\src\debug\res
+com.brian.smartpantry.app-main-6 C:\Users\brian\AndroidStudioProjects\SmartPantryManager\app\src\main\res
+gradleHome-0 C:\Users\brian\.gradle
