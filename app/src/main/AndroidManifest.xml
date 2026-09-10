@@ -26,7 +26,11 @@
         <activity
             android:name=".EditPantryItemActivity"
             android:exported="false" />
-
+			
+		<!-- Screen used to display suggested recipes. -->
+		<activity
+			android:name=".SuggestedRecipesActivity"
+			android:exported="false" />
     </application>
 
 </manifest>
