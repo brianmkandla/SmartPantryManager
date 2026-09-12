@@ -31,6 +31,11 @@
 		<activity
 			android:name=".SuggestedRecipesActivity"
 			android:exported="false" />
+			
+		<!-- Screen used to display the selected recipe. -->
+		<activity
+			android:name=".RecipeDetailActivity"
+			android:exported="false" />
     </application>
 
 </manifest>
