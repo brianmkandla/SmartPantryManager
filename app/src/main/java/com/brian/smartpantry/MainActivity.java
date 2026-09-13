@@ -3,6 +3,7 @@ package com.brian.smartpantry;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView recyclerPantry;
     private DatabaseHelper databaseHelper;
     private PantryAdapter pantryAdapter;
+	private TextView textEmptyPantry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity
 
         // Connect the RecyclerView from the XML layout to this activity.
         recyclerPantry = findViewById(R.id.recyclerPantry);
+		
+		textEmptyPantry = findViewById(R.id.textEmptyPantry);
 
         // Create the database helper used to access pantry data.
         databaseHelper = new DatabaseHelper(this);
@@ -59,6 +63,14 @@ public class MainActivity extends AppCompatActivity
 			Intent intent = new Intent(MainActivity.this, SuggestedRecipesActivity.class);
 			startActivity(intent);
 		});
+		
+		Button buttonSettings = findViewById(R.id.buttonSettings);
+
+		buttonSettings.setOnClickListener(v ->
+		{
+			Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+			startActivity(intent);
+		});
     }
 
     @Override
@@ -75,6 +87,18 @@ public class MainActivity extends AppCompatActivity
     private void loadPantryItems()
     {
         List<PantryItem> pantryItems = databaseHelper.getAllPantryItems();
+		
+		// Show a message when there are no pantry items.
+		if (pantryItems.isEmpty())
+		{
+			recyclerPantry.setVisibility(RecyclerView.GONE);
+			textEmptyPantry.setVisibility(TextView.VISIBLE);
+		}
+		else
+		{
+			recyclerPantry.setVisibility(RecyclerView.VISIBLE);
+			textEmptyPantry.setVisibility(TextView.GONE);
+		}
 
         pantryAdapter = new PantryAdapter(
                 pantryItems,

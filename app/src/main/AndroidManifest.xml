@@ -36,6 +36,11 @@
 		<activity
 			android:name=".RecipeDetailActivity"
 			android:exported="false" />
+			
+		<!-- Screen used to display application settings. -->
+		<activity
+			android:name=".SettingsActivity"
+			android:exported="false" />
     </application>
 
 </manifest>
