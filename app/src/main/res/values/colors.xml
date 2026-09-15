@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main Smart Pantry brand colour. -->
+    <color name="pantry_green">#2E6B4F</color>
+
+    <!-- Darker green used for emphasis and pressed states. -->
+    <color name="pantry_green_dark">#1F4D38</color>
+
+    <!-- Soft green used for cards and secondary surfaces. -->
+    <color name="pantry_green_light">#E8F2EC</color>
+
+    <!-- Warm background that gives the app a natural feel. -->
+    <color name="pantry_background">#F8F6F0</color>
+
+    <!-- Main card and content colour. -->
+    <color name="pantry_surface">#FFFFFF</color>
+
+    <!-- Main text colour. -->
+    <color name="pantry_text">#202522</color>
+
+    <!-- Secondary text colour. -->
+    <color name="pantry_text_secondary">#68736D</color>
+
+    <!-- Used for expiry warnings. -->
+    <color name="pantry_warning">#D88924</color>
+
+    <!-- Used for destructive actions such as delete. -->
+    <color name="pantry_danger">#C94A4A</color>
+
+</resources>

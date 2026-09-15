@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,17 +23,20 @@ public class MainActivity extends AppCompatActivity
     private DatabaseHelper databaseHelper;
     private PantryAdapter pantryAdapter;
 	private TextView textEmptyPantry;
+	private TextView textPantrySummary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState); 
         setContentView(R.layout.activity_main);
 
         // Connect the RecyclerView from the XML layout to this activity.
         recyclerPantry = findViewById(R.id.recyclerPantry);
 		
 		textEmptyPantry = findViewById(R.id.textEmptyPantry);
+		
+		textPantrySummary = findViewById(R.id.textPantrySummary);
 
         // Create the database helper used to access pantry data.
         databaseHelper = new DatabaseHelper(this);
@@ -64,7 +68,7 @@ public class MainActivity extends AppCompatActivity
 			startActivity(intent);
 		});
 		
-		Button buttonSettings = findViewById(R.id.buttonSettings);
+		ImageButton buttonSettings = findViewById(R.id.buttonSettings);
 
 		buttonSettings.setOnClickListener(v ->
 		{
@@ -87,6 +91,14 @@ public class MainActivity extends AppCompatActivity
     private void loadPantryItems()
     {
         List<PantryItem> pantryItems = databaseHelper.getAllPantryItems();
+		
+		// Update the pantry summary shown at the top of the screen.
+		int pantryCount = pantryItems.size();
+
+		textPantrySummary.setText(
+				pantryCount + (pantryCount == 1 ? " item" : " items")
+						+ " currently in your pantry."
+		);
 		
 		// Show a message when there are no pantry items.
 		if (pantryItems.isEmpty())
