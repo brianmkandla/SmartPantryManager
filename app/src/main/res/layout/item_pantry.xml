@@ -1,57 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/pantry_card_background"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="18dp">
 
-    <!-- Displays the name of the pantry item. -->
+    <!-- Ingredient name. -->
     <TextView
         android:id="@+id/textItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textColor="@color/pantry_text"
+        android:textSize="19sp"
         android:textStyle="bold" />
 
-    <!-- Displays the quantity and unit of the pantry item. -->
+    <!-- Quantity and unit. -->
     <TextView
         android:id="@+id/textItemQuantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:textSize="16sp" />
+        android:layout_marginTop="6dp"
+        android:textColor="@color/pantry_green_dark"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
-    <!-- Displays the expiry date when one has been provided. -->
+    <!-- Expiry information. -->
     <TextView
         android:id="@+id/textItemExpiry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:textColor="@color/pantry_text_secondary"
         android:textSize="14sp" />
 
-    <!-- Holds the edit and delete buttons for this pantry item. -->
+    <!-- Card actions. -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
 
-        <!-- Opens the edit screen for this pantry item. -->
+        <!-- Edit action. -->
         <Button
             android:id="@+id/buttonEditItem"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Edit" />
+            android:backgroundTint="@color/pantry_green_light"
+            android:text="Edit"
+            android:textAllCaps="false"
+            android:textColor="@color/pantry_green_dark"
+            android:textSize="14sp" />
 
-        <!-- Deletes this pantry item after confirmation. -->
+        <!-- Delete action. -->
         <Button
             android:id="@+id/buttonDeleteItem"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:text="Delete" />
+            android:backgroundTint="@color/pantry_danger"
+            android:text="Delete"
+            android:textAllCaps="false"
+            android:textColor="@color/pantry_surface"
+            android:textSize="14sp" />
 
     </LinearLayout>
 

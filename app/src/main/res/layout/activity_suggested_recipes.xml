@@ -1,37 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@color/pantry_background"
+    android:padding="20dp">
 
+    <!-- Screen heading. -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Suggested Recipes"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:paddingBottom="12dp" />
+        android:text="Find Recipes"
+        android:textColor="@color/pantry_text"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
+    <!-- Supporting text. -->
     <TextView
-        android:id="@+id/textNoRecipes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="No recipes can be made with your current pantry items."
-        android:textSize="16sp"
-        android:visibility="gone"
-        android:padding="16dp" />
+        android:layout_marginTop="6dp"
+        android:text="Recipes you can make with what you already have."
+        android:textColor="@color/pantry_text_secondary"
+        android:textSize="15sp" />
 
+    <!-- Recipe results. -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerRecipes"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:clipToPadding="false"
+        android:paddingBottom="12dp" />
 
+    <!-- Empty state. -->
+    <TextView
+        android:id="@+id/textNoRecipes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/pantry_empty_background"
+        android:gravity="center"
+        android:padding="28dp"
+        android:text="No recipes can be made with your current pantry items.\n\nAdd more ingredients to discover recipes you can make."
+        android:textColor="@color/pantry_text_secondary"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <!-- Return to pantry. -->
     <Button
         android:id="@+id/buttonBackToPantry"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Back to Pantry" />
+        android:layout_height="52dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/pantry_green"
+        android:text="Back to Pantry"
+        android:textAllCaps="false"
+        android:textColor="@color/pantry_surface"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

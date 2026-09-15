@@ -1,53 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/pantry_background"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="20dp">
 
-        <!-- Settings screen title. -->
+        <!-- Screen heading. -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Settings"
-            android:textSize="26sp"
-            android:textStyle="bold" />
-
-        <!-- Basic information about the application. -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="About Smart Pantry"
-            android:textSize="20sp"
+            android:textColor="@color/pantry_text"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Smart Pantry Manager helps you keep track of pantry items and find recipes that can be made using the ingredients you have available."
-            android:textSize="16sp" />
+            android:layout_marginTop="6dp"
+            android:text="Manage your Smart Pantry experience."
+            android:textColor="@color/pantry_text_secondary"
+            android:textSize="15sp" />
 
-        <!-- Displays the application version. -->
-        <TextView
+        <!-- About card. -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Version 1.0"
-            android:textSize="16sp" />
+            android:layout_marginTop="28dp"
+            android:background="@drawable/settings_card_background"
+            android:orientation="vertical"
+            android:padding="20dp">
 
-        <!-- Returns to the previous screen. -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="About Smart Pantry"
+                android:textColor="@color/pantry_green_dark"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Smart Pantry Manager helps you keep track of the ingredients you have and discover recipes that can be made from your current pantry."
+                android:textColor="@color/pantry_text_secondary"
+                android:textSize="15sp"
+                android:lineSpacingExtra="3dp" />
+
+        </LinearLayout>
+
+        <!-- Application information card. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/settings_card_background"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="App Information"
+                android:textColor="@color/pantry_green_dark"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="Version 1.0"
+                android:textColor="@color/pantry_text"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Smart Pantry Manager"
+                android:textColor="@color/pantry_text_secondary"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <!-- Back button. -->
         <Button
             android:id="@+id/buttonBack"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:layout_marginTop="24dp"
-            android:text="Back" />
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/pantry_green"
+            android:text="Back to Pantry"
+            android:textAllCaps="false"
+            android:textColor="@color/pantry_surface"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

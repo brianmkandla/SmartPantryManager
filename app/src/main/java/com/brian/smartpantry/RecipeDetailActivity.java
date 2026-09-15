@@ -79,7 +79,7 @@ public class RecipeDetailActivity extends AppCompatActivity
             ingredientText.append("• ")
                     .append(ingredient.getIngredientName())
                     .append(" - ")
-                    .append(ingredient.getQuantity())
+                    .append(formatQuantity(ingredient.getQuantity()))
                     .append(" ")
                     .append(ingredient.getUnit())
                     .append("\n");
@@ -97,5 +97,16 @@ public class RecipeDetailActivity extends AppCompatActivity
         {
             finish();
         });
+    }
+
+    // Removes unnecessary .0 from whole-number quantities.
+    private String formatQuantity(double quantity)
+    {
+        if (quantity == (long) quantity)
+        {
+            return String.valueOf((long) quantity);
+        }
+
+        return String.valueOf(quantity);
     }
 }

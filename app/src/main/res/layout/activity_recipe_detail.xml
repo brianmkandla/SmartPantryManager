@@ -1,71 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/pantry_background"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="20dp">
 
-        <!-- Displays the name of the selected recipe. -->
+        <!-- Recipe header. -->
         <TextView
             android:id="@+id/textRecipeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="26sp"
+            android:textColor="@color/pantry_text"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
-        <!-- Displays a short description of the recipe. -->
         <TextView
             android:id="@+id/textRecipeDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="16sp" />
+            android:textColor="@color/pantry_text_secondary"
+            android:textSize="16sp"
+            android:lineSpacingExtra="2dp" />
 
-        <!-- Heading for the required ingredients. -->
+        <!-- Ingredients section. -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:text="Ingredients"
-            android:textSize="20sp"
+            android:textColor="@color/pantry_text"
+            android:textSize="21sp"
             android:textStyle="bold" />
 
-        <!-- Displays the ingredients and required quantities. -->
-        <TextView
-            android:id="@+id/textRecipeIngredients"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="16sp" />
+            android:layout_marginTop="10dp"
+            android:background="@drawable/recipe_detail_card_background"
+            android:orientation="vertical"
+            android:padding="18dp">
 
-        <!-- Heading for the cooking instructions. -->
+            <TextView
+                android:id="@+id/textRecipeIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/pantry_text"
+                android:textSize="16sp"
+                android:lineSpacingExtra="5dp" />
+
+        </LinearLayout>
+
+        <!-- Instructions section. -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="26dp"
             android:text="Instructions"
-            android:textSize="20sp"
+            android:textColor="@color/pantry_text"
+            android:textSize="21sp"
             android:textStyle="bold" />
 
-        <!-- Displays the instructions stored for the recipe. -->
-        <TextView
-            android:id="@+id/textRecipeInstructions"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="16sp" />
+            android:layout_marginTop="10dp"
+            android:background="@drawable/recipe_detail_card_background"
+            android:orientation="vertical"
+            android:padding="18dp">
 
-        <!-- Returns to the Suggested Recipes screen. -->
+            <TextView
+                android:id="@+id/textRecipeInstructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/pantry_text"
+                android:textSize="16sp"
+                android:lineSpacingExtra="5dp" />
+
+        </LinearLayout>
+
+        <!-- Back button. -->
         <Button
             android:id="@+id/buttonBack"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Back to Suggested Recipes" />
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/pantry_green"
+            android:text="Back to Recipes"
+            android:textAllCaps="false"
+            android:textColor="@color/pantry_surface"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

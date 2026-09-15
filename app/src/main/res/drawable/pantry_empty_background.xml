@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Soft green surface for the empty state. -->
+    <solid android:color="@color/pantry_green_light" />
+
+    <!-- Rounded corners. -->
+    <corners android:radius="16dp" />
+
+</shape>

@@ -51,7 +51,7 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
         holder.textItemName.setText(item.getName());
 
         holder.textItemQuantity.setText(
-                "Quantity: " + item.getQuantity() + " " + item.getUnit()
+                "Quantity: " + formatQuantity(item.getQuantity()) + " " + item.getUnit()
         );
 
         if (item.getExpiryDate() == null || item.getExpiryDate().isEmpty())
@@ -74,6 +74,17 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
         {
             listener.onDelete(item);
         });
+    }
+
+    // Removes unnecessary .0 from whole-number quantities.
+    private String formatQuantity(double quantity)
+    {
+        if (quantity == (long) quantity)
+        {
+            return String.valueOf((long) quantity);
+        }
+
+        return String.valueOf(quantity);
     }
 
     // Tells RecyclerView how many pantry items are in the list.

@@ -1,147 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/pantry_background">
+    android:background="@color/pantry_background"
+    android:fillViewport="true">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
 
+        <!-- App heading -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <!-- Main application header. -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <!-- Application name. -->
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="Smart Pantry"
                     android:textColor="@color/pantry_text"
                     android:textSize="30sp"
                     android:textStyle="bold" />
 
-                <!-- Opens the Settings screen. -->
-                <ImageButton
-                    android:id="@+id/buttonSettings"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="Settings"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_settings"
-                    android:tint="@color/pantry_text" />
-
-            </LinearLayout>
-
-            <!-- Short description below the main heading. -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="What's in your kitchen?"
-                android:textColor="@color/pantry_text_secondary"
-                android:textSize="16sp" />
-
-            <!-- Pantry summary card. -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@color/pantry_green_light"
-                android:orientation="vertical"
-                android:padding="18dp">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Your Pantry"
-                    android:textColor="@color/pantry_green_dark"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/textPantrySummary"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="Your pantry items"
+                    android:layout_marginTop="4dp"
+                    android:text="Make the most of what you have."
                     android:textColor="@color/pantry_text_secondary"
                     android:textSize="15sp" />
 
             </LinearLayout>
 
-            <!-- Pantry section heading. -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:text="Pantry Items"
-                android:textColor="@color/pantry_text"
-                android:textSize="21sp"
-                android:textStyle="bold" />
-
-            <!-- Message shown when the pantry has no items. -->
-            <TextView
-                android:id="@+id/textEmptyPantry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:gravity="center"
-                android:padding="32dp"
-                android:text="Your pantry is empty.\nAdd some ingredients to get started."
-                android:textColor="@color/pantry_text_secondary"
-                android:textSize="16sp"
-                android:visibility="gone" />
-
-            <!-- Displays pantry items. -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerPantry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
-                android:layout_marginTop="12dp" />
-
-            <!-- Main action for adding pantry ingredients. -->
-            <Button
-                android:id="@+id/buttonAddItem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="+  Add Pantry Item"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                android:backgroundTint="@color/pantry_green"
-                android:textColor="@color/pantry_surface" />
-
-            <!-- Recipe discovery action. -->
-            <Button
-                android:id="@+id/buttonSuggestedRecipes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Find Recipes"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                android:backgroundTint="@color/pantry_green_light"
-                android:textColor="@color/pantry_green_dark" />
+            <ImageButton
+                android:id="@+id/buttonSettings"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Settings"
+                android:padding="12dp"
+                android:src="@drawable/ic_settings"
+                android:tint="@color/pantry_text" />
 
         </LinearLayout>
 
-    </ScrollView>
+        <!-- Pantry overview -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/settings_card_background"
+            android:orientation="vertical"
+            android:padding="20dp">
 
-</LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your Pantry"
+                android:textColor="@color/pantry_green_dark"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textPantrySummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="0 items currently in your pantry."
+                android:textColor="@color/pantry_text_secondary"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/buttonViewPantry"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="18dp"
+                android:backgroundTint="@color/pantry_green"
+                android:text="View My Pantry"
+                android:textAllCaps="false"
+                android:textColor="@color/pantry_surface"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Recipe section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Recipes"
+            android:textColor="@color/pantry_text"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Find something you can make with your current ingredients."
+            android:textColor="@color/pantry_text_secondary"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/buttonSuggestedRecipes"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/pantry_green_light"
+            android:text="Find Recipes"
+            android:textAllCaps="false"
+            android:textColor="@color/pantry_green_dark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Future feature -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/settings_card_background"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Video Instructions"
+                android:textColor="@color/pantry_green_dark"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="Step-by-step cooking videos are coming soon."
+                android:textColor="@color/pantry_text_secondary"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

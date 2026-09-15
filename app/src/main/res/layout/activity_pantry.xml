@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/pantry_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Screen heading -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Pantry"
+                android:textColor="@color/pantry_text"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <!-- Short explanation of what this screen is for -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Manage the ingredients you currently have."
+                android:textColor="@color/pantry_text_secondary"
+                android:textSize="15sp" />
+
+            <!-- Pantry summary -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/pantry_green_light"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your Pantry"
+                    android:textColor="@color/pantry_green_dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textPantrySummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="0 items currently in your pantry."
+                    android:textColor="@color/pantry_text_secondary"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <!-- Pantry item list -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Pantry Items"
+                android:textColor="@color/pantry_text"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <!-- Message shown when the pantry has no items -->
+            <TextView
+                android:id="@+id/textEmptyPantry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:padding="32dp"
+                android:text="Your pantry is empty.\nAdd some ingredients to get started."
+                android:textColor="@color/pantry_text_secondary"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <!-- Existing pantry cards are displayed here -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerPantry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:nestedScrollingEnabled="false" />
+
+            <!-- Add item action -->
+            <Button
+                android:id="@+id/buttonAddItem"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/pantry_green"
+                android:text="+  Add Pantry Item"
+                android:textAllCaps="false"
+                android:textColor="@color/pantry_surface"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -3,78 +3,78 @@ package com.brian.smartpantry;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.brian.smartpantry.database.DatabaseHelper;
-import com.brian.smartpantry.model.PantryItem;
 import com.brian.smartpantry.database.RecipeSeeder;
+import com.brian.smartpantry.model.PantryItem;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
 {
-    private RecyclerView recyclerPantry;
     private DatabaseHelper databaseHelper;
-    private PantryAdapter pantryAdapter;
-	private TextView textEmptyPantry;
-	private TextView textPantrySummary;
+    private TextView textPantrySummary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        super.onCreate(savedInstanceState); 
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Connect the RecyclerView from the XML layout to this activity.
-        recyclerPantry = findViewById(R.id.recyclerPantry);
-		
-		textEmptyPantry = findViewById(R.id.textEmptyPantry);
-		
-		textPantrySummary = findViewById(R.id.textPantrySummary);
+        textPantrySummary = findViewById(R.id.textPantrySummary);
 
-        // Create the database helper used to access pantry data.
         databaseHelper = new DatabaseHelper(this);
-		
-		// Add the starter recipes the first time the database is used.
-		if (!databaseHelper.hasRecipes())
-		{
-			RecipeSeeder.seedRecipes(databaseHelper);
-		}
 
-        // Set the RecyclerView to display items in a vertical list.
-        recyclerPantry.setLayoutManager(new LinearLayoutManager(this));
-
-        // Connect the Add Pantry Item button.
-        Button buttonAddItem = findViewById(R.id.buttonAddItem);
-
-        // Open the Add Pantry Item screen when the button is clicked.
-        buttonAddItem.setOnClickListener(v ->
+        // Add the starter recipes the first time the app is opened.
+        if (!databaseHelper.hasRecipes())
         {
-            Intent intent = new Intent(MainActivity.this, AddPantryItemActivity.class);
+            RecipeSeeder.seedRecipes(databaseHelper);
+        }
+
+        // Open the dedicated pantry screen from the home dashboard.
+        Button buttonViewPantry = findViewById(R.id.buttonViewPantry);
+
+        buttonViewPantry.setOnClickListener(v ->
+        {
+            Intent intent = new Intent(
+                    MainActivity.this,
+                    PantryActivity.class
+            );
+
             startActivity(intent);
         });
-		
-		Button buttonSuggestedRecipes = findViewById(R.id.buttonSuggestedRecipes);
 
-		buttonSuggestedRecipes.setOnClickListener(v ->
-		{
-			Intent intent = new Intent(MainActivity.this, SuggestedRecipesActivity.class);
-			startActivity(intent);
-		});
-		
-		ImageButton buttonSettings = findViewById(R.id.buttonSettings);
+        // Open the recipe suggestions screen.
+        Button buttonSuggestedRecipes =
+                findViewById(R.id.buttonSuggestedRecipes);
 
-		buttonSettings.setOnClickListener(v ->
-		{
-			Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-			startActivity(intent);
-		});
+        buttonSuggestedRecipes.setOnClickListener(v ->
+        {
+            Intent intent = new Intent(
+                    MainActivity.this,
+                    SuggestedRecipesActivity.class
+            );
+
+            startActivity(intent);
+        });
+
+        // Open the application settings screen.
+        ImageButton buttonSettings =
+                findViewById(R.id.buttonSettings);
+
+        buttonSettings.setOnClickListener(v ->
+        {
+            Intent intent = new Intent(
+                    MainActivity.this,
+                    SettingsActivity.class
+            );
+
+            startActivity(intent);
+        });
     }
 
     @Override
@@ -82,88 +82,21 @@ public class MainActivity extends AppCompatActivity
     {
         super.onResume();
 
-        // Reload the pantry whenever this screen becomes visible.
-        // This also refreshes the list after an add, edit or delete.
-        loadPantryItems();
+        // Refresh the pantry count whenever the user returns to Home.
+        loadPantrySummary();
     }
 
-    // Retrieves pantry items from the database and displays them in the RecyclerView.
-    private void loadPantryItems()
+    private void loadPantrySummary()
     {
-        List<PantryItem> pantryItems = databaseHelper.getAllPantryItems();
-		
-		// Update the pantry summary shown at the top of the screen.
-		int pantryCount = pantryItems.size();
+        List<PantryItem> pantryItems =
+                databaseHelper.getAllPantryItems();
 
-		textPantrySummary.setText(
-				pantryCount + (pantryCount == 1 ? " item" : " items")
-						+ " currently in your pantry."
-		);
-		
-		// Show a message when there are no pantry items.
-		if (pantryItems.isEmpty())
-		{
-			recyclerPantry.setVisibility(RecyclerView.GONE);
-			textEmptyPantry.setVisibility(TextView.VISIBLE);
-		}
-		else
-		{
-			recyclerPantry.setVisibility(RecyclerView.VISIBLE);
-			textEmptyPantry.setVisibility(TextView.GONE);
-		}
+        int pantryCount = pantryItems.size();
 
-        pantryAdapter = new PantryAdapter(
-                pantryItems,
-                new PantryAdapter.OnItemActionListener()
-                {
-                    @Override
-                    public void onEdit(PantryItem item)
-                    {
-                        openEditScreen(item);
-                    }
-
-                    @Override
-                    public void onDelete(PantryItem item)
-                    {
-                        showDeleteConfirmation(item);
-                    }
-                }
+        textPantrySummary.setText(
+                pantryCount
+                        + (pantryCount == 1 ? " item" : " items")
+                        + " currently in your pantry."
         );
-
-        recyclerPantry.setAdapter(pantryAdapter);
-    }
-
-    // Opens the edit screen for the selected pantry item.
-    private void openEditScreen(PantryItem item)
-    {
-        Intent intent = new Intent(MainActivity.this, EditPantryItemActivity.class);
-        intent.putExtra("item_id", item.getId());
-        startActivity(intent);
-    }
-
-    // Shows a confirmation dialog before deleting a pantry item.
-    private void showDeleteConfirmation(PantryItem item)
-    {
-        new AlertDialog.Builder(this)
-                .setTitle("Delete Pantry Item")
-                .setMessage("Are you sure you want to delete " + item.getName() + "?")
-                .setPositiveButton("Delete", (dialog, which) ->
-                {
-                    deletePantryItem(item);
-                })
-                .setNegativeButton("Cancel", null)
-                .show();
-    }
-
-    // Deletes the selected pantry item from SQLite.
-    private void deletePantryItem(PantryItem item)
-    {
-        int result = databaseHelper.deletePantryItem(item.getId());
-
-        if (result > 0)
-        {
-            // Reload the list so the deleted item disappears.
-            loadPantryItems();
-        }
     }
 }

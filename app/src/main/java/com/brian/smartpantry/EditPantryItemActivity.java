@@ -72,9 +72,20 @@ public class EditPantryItemActivity extends AppCompatActivity
 
         // Place the existing values into the input fields.
         editItemName.setText(item.getName());
-        editItemQuantity.setText(String.valueOf(item.getQuantity()));
+        editItemQuantity.setText(formatQuantity(item.getQuantity()));
         editItemUnit.setText(item.getUnit());
         editItemExpiry.setText(item.getExpiryDate());
+    }
+
+    // Removes unnecessary .0 from whole-number quantities.
+    private String formatQuantity(double quantity)
+    {
+        if (quantity == (long) quantity)
+        {
+            return String.valueOf((long) quantity);
+        }
+
+        return String.valueOf(quantity);
     }
 
     // Validates the form and updates the pantry item in SQLite.

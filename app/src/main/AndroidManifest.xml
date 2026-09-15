@@ -41,6 +41,10 @@
 		<activity
 			android:name=".SettingsActivity"
 			android:exported="false" />
+			
+		<activity 
+			android:name=".PantryActivity" 
+			android:exported="false" />
     </application>
 
 </manifest>
