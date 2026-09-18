@@ -86,17 +86,30 @@
 
         </LinearLayout>
 
-        <!-- Back button. -->
+        <!-- Marks this recipe as cooked and increases its usage count. -->
+        <Button
+            android:id="@+id/buttonCooked"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/pantry_green"
+            android:text="✓  Cooked This"
+            android:textAllCaps="false"
+            android:textColor="@color/pantry_surface"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Returns to the Suggested Recipes screen. -->
         <Button
             android:id="@+id/buttonBack"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="8dp"
-            android:backgroundTint="@color/pantry_green"
+            android:backgroundTint="@color/pantry_green_light"
             android:text="Back to Recipes"
             android:textAllCaps="false"
-            android:textColor="@color/pantry_surface"
+            android:textColor="@color/pantry_green_dark"
             android:textSize="16sp"
             android:textStyle="bold" />
 

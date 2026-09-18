@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- App heading -->
+        <!-- App heading. -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,6 +43,7 @@
 
             </LinearLayout>
 
+            <!-- Settings icon. -->
             <ImageButton
                 android:id="@+id/buttonSettings"
                 android:layout_width="48dp"
@@ -55,7 +56,7 @@
 
         </LinearLayout>
 
-        <!-- Pantry overview -->
+        <!-- Pantry overview. -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,7 +96,7 @@
 
         </LinearLayout>
 
-        <!-- Recipe section -->
+        <!-- Recipe discovery section. -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -125,7 +126,56 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <!-- Future feature -->
+        <!-- Most frequently cooked recipes. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/settings_card_background"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Most Used Recipes"
+                android:textColor="@color/pantry_green_dark"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Your go-to recipes will appear here."
+                android:textColor="@color/pantry_text_secondary"
+                android:textSize="14sp" />
+
+            <!-- Recipe rows are added here by MainActivity. -->
+            <LinearLayout
+                android:id="@+id/mostCookedContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="vertical" />
+
+            <!-- Empty state shown before any recipe has been cooked. -->
+            <TextView
+                android:id="@+id/textNoMostCooked"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/pantry_empty_background"
+                android:gravity="center"
+                android:padding="18dp"
+                android:text="Cook a recipe and it will appear here."
+                android:textColor="@color/pantry_text_secondary"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!-- Future feature. -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
