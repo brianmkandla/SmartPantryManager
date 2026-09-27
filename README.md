@@ -56,7 +56,9 @@ The application contains several screens:
 
 ## Database
 
-SQLite is used to store the application's data locally.
+SQLite is used to store the application's data locally on the Android device.
+
+SQLite was chosen because it is lightweight, works without an internet connection, and is suitable for an application such as Smart Pantry Manager where the user's pantry data only needs to be stored locally on their device. It also provides reliable persistent storage while keeping the application simple to develop and maintain.
 
 The database stores:
 
@@ -66,6 +68,7 @@ The database stores:
 * Recipe usage information
 
 Recipe usage is tracked so that the application can display the user's most cooked recipes on the Home screen.
+
 
 ## Getting Started
 
